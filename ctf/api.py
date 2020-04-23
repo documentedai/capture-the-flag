@@ -1,4 +1,4 @@
-"""`Ctf` state machine and game logic"""
+"""Catpure The Flag (Ctf) state machine and game logic."""
 
 import numpy as np
 
@@ -30,13 +30,13 @@ class Ctf(object):
         """Initialization of `Ctf` object.
 
         Args:
-            dimensions (tuple, optional): Tuple of integers
+            dimensions (:obj:`tuple`, optional): Tuple of integers
                 representing board dimensions. Defaults to `(16, 9)`.
-            num_units (int, optional): Number of units each
+            num_units (:obj:`int`, optional): Number of units each
                 player controls. Defaults to `3`.
-            max_score (int, optional): Score the game is played to.
+            max_score (:obj:`int`, optional): Score the game is played to.
                 Defaults to `1`.
-            jail_timer (int, optional): How many turns a unit spends in
+            jail_timer (:obj:`int`, optional): How many turns a unit spends in
                 jail. Defaults to `5`.
 
         """
@@ -54,7 +54,7 @@ class Ctf(object):
         Returns a copy of the board state.
 
         Returns:
-            board (:obj:`np.array`): Copy of board state.
+            :obj:`numpy.array`: Copy of board state.
 
         """
         return np.copy(self._board)
@@ -65,13 +65,16 @@ class Ctf(object):
 
         Returns a dictionary representation of the objects and their
         respective idxs. The key is formatted as such:
-            0 -> 'EMPTY'
-            1 -> :obj:~`ctf.pieces.Flag` for Team 1
-            2 -> :obj:~`ctf.pieces.Flag` for Team 2
-            3+ -> :obj:~`ctf.pieces.Unit` Units
+
+        ::
+
+            0: 'EMPTY'
+            1: Flag for Team 1
+            2: Flag for Team 2
+            3+: Units
 
         Returns:
-            key (dict): Dictionary representation of key.
+            :obj:`dict`: Dictionary representation of key.
 
         """
         key = {k: vars(v) for k, v in self._key.items() if v != 'EMPTY'}
@@ -85,13 +88,14 @@ class Ctf(object):
         Returns a copy of submitted actions. Logs are in the format of
         a list with dictionaries as elements. The dictionaries have
         only two key value pairs:
-            {
-                'unit': <Idx of unit that moved>,
-                'Direction': <direction of movement>
-            }
+
+        ::
+
+            'unit': <Idx of unit that moved>
+            'direction': <direction of movement>
 
         Returns:
-            log (list): Copy of submitted actions.
+            :obj:`list`: Copy of submitted actions.
 
         """
         return list(self._game_log)
@@ -105,7 +109,7 @@ class Ctf(object):
         representing whether or not the unit has moved yet.
 
         Returns:
-            moved_units (dict): Copy moved units dictionary.
+            :obj:`dict`: Copy moved units dictionary.
 
         """
         return dict(self._moved_units)
@@ -117,7 +121,7 @@ class Ctf(object):
         Returns a list of units who have yet to move this turn.
 
         Returns:
-            need_to_move (list): List of units who have yet to move this
+            :obj:`list`: List of units who have yet to move this
                 turn.
 
         """
@@ -129,17 +133,18 @@ class Ctf(object):
 
         Returns a combination of the other properties. Observation
         contains:
-            {
-                'board': Board property,
-                'key': Key property,
-                'log': Log property,
-                'moved_units': Moved Units property,
-                'turn': Turn property,
-                'winner': Winner property
-            }
+
+        ::
+
+            'board': Board property,
+            'key': Key property,
+            'log': Log property,
+            'moved_units': Moved Units property,
+            'turn': Turn property,
+            'winner': Winner property
 
         Returns:
-            observation (dict): Dictionary containing each of the other
+            :obj:`dict`: Dictionary containing each of the other
                 properties.
 
         """
@@ -155,6 +160,14 @@ class Ctf(object):
 
     @property
     def score(self):
+        """Score property.
+
+        Returns a dictionary representing the score, indexed by teams.
+
+        Returns:
+            :obj:`dict`: Current score.
+
+        """
         return dict(self._score)
 
     @property
@@ -162,11 +175,14 @@ class Ctf(object):
         """Turn property.
 
         Returns an integer representing whose turn it is:
-            1 -> Player 1
-            2 -> Player 2
+
+        ::
+
+            1: Player 1
+            2: Player 2
 
         Returns:
-            turn (int): Whose turn it is.
+            :obj:`int`: Whose turn it is.
 
         """
         return self._turn
@@ -176,12 +192,15 @@ class Ctf(object):
         """Winner property.
 
         Returns a integer or `None` depending on if game is finished:
-            1 -> Player 1 wins
-            2 -> Player 2 wins
-            `None` -> No one has won yet
+
+        ::
+
+            1: Player 1 wins
+            2: Player 2 wins
+            None: No one has won yet
 
         Returns:
-            winner (int | `None`): Integer corresponding to player if a
+            :obj:`int` | `None`: Integer corresponding to player if a
                 player has one, or `None` if no player has won yet.
 
         """
@@ -410,8 +429,8 @@ class Ctf(object):
         >>> game.move(unit=3, direction='N') # legal
 
         Args:
-            unit (int): A unit's idx.
-            direction (str): Direction for unit to move.
+            unit (:obj:`int`): A unit's idx.
+            direction (:obj:`str`): Direction for unit to move.
 
         Raises:
             GameNotFoundError: Raised if this method is called prior to
