@@ -155,6 +155,14 @@ class Ctf(object):
 
     @property
     def score(self):
+        """Score property.
+
+        Returns a dictionary representing the score, indexed by teams.
+
+        Returns:
+            score (dict): Current score.
+
+        """
         return dict(self._score)
 
     @property

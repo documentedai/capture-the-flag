@@ -9,7 +9,7 @@ class Piece(object):
         shared amongst the other pieces.
 
         Args:
-            idx (int): Index of Unit.
+            idx (int): Index of Piece.
             team (int): The team this piece belongs to.
             position (tuple): Location of the piece on the board.
 
