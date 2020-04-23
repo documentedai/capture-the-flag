@@ -1,4 +1,4 @@
-"""Rendering `Ctf` board"""
+"""Rendering Capture The Flag (Ctf) board."""
 
 import pyglet
 from pyglet import gl
@@ -13,20 +13,20 @@ class Renderer(object):
         """Initialization of `Renderer` object.
 
         Args:
-            width (int): Width of window.
-            height (int): Height of window.
-            x_pad (float): Amount of padding to add to left / right of
+            width (:obj:`int`): Width of window.
+            height (:obj:`int`): Height of window.
+            x_pad (:obj:`float`): Amount of padding to add to left / right of
                 the window. The higher this number is, the more white
                 space will exist to the left of the grid and right of
                 the logs / scoreboard.
-            y_pad (float): Amount of padding to add to top / bottom of
+            y_pad (:obj:`float`): Amount of padding to add to top / bottom of
                 the window. The higher this number is, the more white
                 space will exist to the left of the grid and right of
                 the logs / scoreboard.
-            box (float): How large should a box in the grid be. This
+            box (:obj:`float`): How large should a box in the grid be. This
                 number corresponds to the length of the sides of the
                 square.
-            unit_pad (float): How much padding should exist between the
+            unit_pad (:obj:`float`): How much padding should exist between the
                 sides of the box the unit is within, and the unit
                 itself. if box is 30, and unit_pad is 5, the unit will
                 be a 20x20 glyph within a 30x30 box. (A `Unit` side
@@ -62,7 +62,7 @@ class Renderer(object):
         will go.
 
         Args:
-            dims (tuple): Dimensions of the board being drawn.
+            dims (:obj:`tuple`): Dimensions of the board being drawn.
 
         """
         gray = True
@@ -100,8 +100,8 @@ class Renderer(object):
         grid drawn by `draw_grid`.
 
         Args:
-            dims (tuple): Dimensions of the board being drawn.
-            key (dict): Private `_key` key from `Ctf`.
+            dims (:obj:`tuple`): Dimensions of the board being drawn.
+            key (:obj:`dict`): Private `_key` key from `Ctf`.
 
         """
         for v in key.values():
@@ -190,10 +190,10 @@ class Renderer(object):
         it.
 
         Args:
-            dims (tuple): The dimensions of the board being drawn.
-            score (dict): The score of the game being drawn.
-            logs (list): The logs of the game being drawn.
-            key (dict): Private `_key` object from `Ctf`.
+            dims (:obj:`tuple`): The dimensions of the board being drawn.
+            score (:obj:`dict`): The score of the game being drawn.
+            logs (:obj:`list`): The logs of the game being drawn.
+            key (:obj:`dict`): Private `_key` object from `Ctf`.
 
         """
         grid_limit = self.x_pad + dims[1] * self.box

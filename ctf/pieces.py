@@ -1,17 +1,14 @@
-"""Pieces used in `Ctf` game"""
+"""Pieces used in Capture The Flag (Ctf) game."""
 
 class Piece(object):
-    """The base class for other pieces"""
     def __init__(self, idx, team, position):
-        """Initializtion of `Piece` object.
-
-        This class initializes the storage of standard attributes,
+        """This class initializes the storage of standard attributes,
         shared amongst the other pieces.
 
         Args:
-            idx (int): Index of Piece.
-            team (int): The team this piece belongs to.
-            position (tuple): Location of the piece on the board.
+            idx (:obj:`int`): Index of Piece.
+            team (:obj:`int`): The team this piece belongs to.
+            position (:obj:`tuple`): Location of the piece on the board.
 
         """
         self.idx = idx
@@ -20,16 +17,13 @@ class Piece(object):
 
 
 class Unit(Piece):
-    """`Unit` class, represents a moveable unit in a `Ctf` game."""
     def __init__(self, idx, team, position, has_flag=False, in_jail=False):
-        """Initialization of `Unit` object.
-
-        This class inherits from `Piece`.
+        """Unit piece, representing a controllable character on the board.
 
         Args:
-            has_flag (bool, optional): Whether or not the unit has the
+            has_flag (:obj:`bool`, optional): Whether or not the unit has the
                 flag. Defaults to `False`.
-            in_jail (bool, optional): Whether or not the unit is in
+            in_jail (:obj:`bool`, optional): Whether or not the unit is in
                 jail. Defaults to `False`.
 
         """
@@ -40,12 +34,10 @@ class Unit(Piece):
 
 class Flag(Piece):
     def __init__(self, idx, team, position, grounded=True):
-        """Initialization of `Flag` object.
-
-        This class inherits from `Piece`.
+        """Flag piece, representing one of the team's flags.
 
         Args:
-            grounded (bool, optional): Whether or not this flag is on
+            grounded (:obj:`bool`, optional): Whether or not this flag is on
                 the ground. `True` meaning this flag is on the ground,
                 `False` meaning a unit is currently carrying this flag.
                 Defaults to `True`.
