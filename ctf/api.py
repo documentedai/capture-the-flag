@@ -30,13 +30,13 @@ class Ctf(object):
         """Initialization of `Ctf` object.
 
         Args:
-            dimensions (tuple, optional): Tuple of integers
+            dimensions (:obj:`tuple`, optional): Tuple of integers
                 representing board dimensions. Defaults to `(16, 9)`.
-            num_units (int, optional): Number of units each
+            num_units (:obj:`int`, optional): Number of units each
                 player controls. Defaults to `3`.
-            max_score (int, optional): Score the game is played to.
+            max_score (:obj:`int`, optional): Score the game is played to.
                 Defaults to `1`.
-            jail_timer (int, optional): How many turns a unit spends in
+            jail_timer (:obj:`int`, optional): How many turns a unit spends in
                 jail. Defaults to `5`.
 
         """
@@ -54,7 +54,7 @@ class Ctf(object):
         Returns a copy of the board state.
 
         Returns:
-            board (:obj:`np.array`): Copy of board state.
+            board (:obj:`numpy.array`): Copy of board state.
 
         """
         return np.copy(self._board)
@@ -65,13 +65,16 @@ class Ctf(object):
 
         Returns a dictionary representation of the objects and their
         respective idxs. The key is formatted as such:
-            0 -> 'EMPTY'
-            1 -> :obj:~`ctf.pieces.Flag` for Team 1
-            2 -> :obj:~`ctf.pieces.Flag` for Team 2
-            3+ -> :obj:~`ctf.pieces.Unit` Units
+
+        ::
+
+            0: 'EMPTY'
+            1: Flag for Team 1
+            2: Flag for Team 2
+            3+: Units
 
         Returns:
-            key (dict): Dictionary representation of key.
+            key (:obj:`dict`): Dictionary representation of key.
 
         """
         key = {k: vars(v) for k, v in self._key.items() if v != 'EMPTY'}
@@ -85,13 +88,14 @@ class Ctf(object):
         Returns a copy of submitted actions. Logs are in the format of
         a list with dictionaries as elements. The dictionaries have
         only two key value pairs:
-            {
-                'unit': <Idx of unit that moved>,
-                'Direction': <direction of movement>
-            }
+
+        ::
+
+            'unit': <Idx of unit that moved>
+            'direction': <direction of movement>
 
         Returns:
-            log (list): Copy of submitted actions.
+            log (:obj:`list`): Copy of submitted actions.
 
         """
         return list(self._game_log)
@@ -105,7 +109,7 @@ class Ctf(object):
         representing whether or not the unit has moved yet.
 
         Returns:
-            moved_units (dict): Copy moved units dictionary.
+            moved_units (:obj:`dict`): Copy moved units dictionary.
 
         """
         return dict(self._moved_units)
