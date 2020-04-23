@@ -22,7 +22,8 @@ setuptools.setup(
     include_package_data=True,
     license='BSD',
     extras_require={
-        'testing': ['pytest', 'pytest-cov', 'flake8']
+        'testing': ['pytest', 'pytest-cov', 'flake8'],
+        'docs': ['sphinx']
     },
     install_requires=[
         'numpy',
