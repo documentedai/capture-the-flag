@@ -44,3 +44,4 @@ while not game.winner:
 print(game.score)
 print(game.winner)
 ```
+## [Documentation](https://capture-the-flag.readthedocs.io/en/latest/)
