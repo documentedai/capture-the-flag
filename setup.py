@@ -17,7 +17,13 @@ setuptools.setup(
     description='A Capture The Flag (CTF) environment.',
     long_description=long_description,
     long_description_content_type='text/markdown',
-    url='https://gitlab.com/documented/ctf',
+    url='https://github.com/documentedai/capture-the-flag',
+    download_url='https://pypi.org/project/capture-the-flag/',
+    project_urls={
+        'Documentation': 'https://capture-the-flag.readthedocs.io/en/latest/',
+        'Source': 'https://github.com/documentedai/capture-the-flag',
+        'Tracker': 'https://github.com/documentedai/capture-the-flag/issues'
+    },
     packages=setuptools.find_packages(),
     include_package_data=True,
     license='BSD',
@@ -30,6 +36,7 @@ setuptools.setup(
         'pyglet'
     ],
     classifiers=[
+        'Development Status :: 5 - Production/Stable',
         'Programming Language :: Python :: 3',
         'Operating System :: OS Independent'
     ]
