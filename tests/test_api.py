@@ -30,7 +30,6 @@ def test_errors():
         game.render()
 
     game.new_game()
-    game.render()
 
     if 3 in game.need_to_move:
         active = 3
