@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+      - issue-7
 
 jobs:
   deploy:
@@ -23,7 +24,7 @@ jobs:
     - name: Run tests and upload coverage
       run: |
         pip install .[testing]
-        sudo apt install freeglut3-dev
+        sudo apt install python-opengl
         pytest tests/ --cov ctf --cov-report xml --cov-fail-under ${{ secrets.COVERAGE_THRESHOLD }}
         bash <(curl -s https://codecov.io/bash)
     - name: Build and publish
