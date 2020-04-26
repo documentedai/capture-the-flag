@@ -53,3 +53,4 @@ env
 *.whl
 .coverage
 coverage.xml
+htmlcov
