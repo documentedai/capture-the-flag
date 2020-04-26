@@ -1,2 +1,7 @@
 [run]
 omit = ctf/rendering.py
+
+[report]
+exclude_lines =
+    def render
+    except ValueError
