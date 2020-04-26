@@ -3,6 +3,7 @@
 [![Package Status](https://img.shields.io/pypi/status/capture-the-flag.svg)](https://pypi.org/project/capture-the-flag/)
 [![License](https://img.shields.io/pypi/l/capture-the-flag.svg)](https://github.com/documentedai/capture-the-flag/blob/master/LICENSE)
 [![Upload Python Package](https://github.com/documentedai/capture-the-flag/workflows/Upload%20Python%20Package/badge.svg?branch=master)](https://github.com/documentedai/capture-the-flag/actions?query=branch%3Amaster)
+[![Coverage](https://codecov.io/github/documentedai/capture-the-flag/coverage.svg?branch=master)](https://codecov.io/gh/documentedai/capture-the-flag)
 
 Capture The Flag (CTF) is a Python package for reinforcement learning. This package is not related to [CTF Hacking](https://en.wikipedia.org/wiki/Capture_the_flag#Computer_security) competitions.
 ## Installation
